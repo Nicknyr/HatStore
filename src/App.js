@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import Navbar from './Navbar';
 import Jumbotron from './Jumbotron';
 import FeaturedProducts from './FeaturedProducts';
+import AboutSection from './AboutSection';
+import Newsletter from './Newsletter';
 import Footer from './Footer';
 import { Reset } from 'styled-reset';
 import './App.css';
@@ -18,7 +20,8 @@ function App() {
       <Navbar />
       <Jumbotron />
       <FeaturedProducts />
-      <Footer />
+      <AboutSection />
+      <Newsletter />
     </div>
   );
 }
