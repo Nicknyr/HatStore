@@ -7,6 +7,8 @@ import Hat2 from './assets/hat2.jpg';
 
 const STYLES = styled.div`
     //border: 5px solid goldenrod;
+    //font-family: 'Arapey', serif;
+    font-family: 'Roboto', sans-serif;
 
     p {
         font-size: .6em;
@@ -14,6 +16,15 @@ const STYLES = styled.div`
 
     h3 {
         margin: .3em;
+    }
+
+    h2 {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding: 1em;
+        font-family: 'Arapey', serif;
+        font-size: 2.2em;
     }
 
     .container {
@@ -27,9 +38,9 @@ const STYLES = styled.div`
 
     .featured-item {
         height: auto;
-        width: 200px;
+        flex-basis: 33%;
         font-size: 2em;
-        //border: 2px solid goldenrod;
+        border: 2px solid goldenrod;
         margin-bottom: 1em;
     }
 
@@ -45,6 +56,12 @@ const STYLES = styled.div`
         background: red;
         margin: .2em;
     }
+
+    @media(max-width: 500px) {
+        .featured-item {
+            flex-basis: 100%;
+        }
+    }
 `;
 
 
@@ -59,6 +76,7 @@ class FeaturedProducts extends Component {
     render() {
         return(
             <STYLES>
+                <h2>Featured Products</h2>
                 <div className="container">
                    <div className="featured-item item-1">
                        <img src={Hat1} height="100"/>

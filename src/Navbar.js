@@ -8,6 +8,8 @@ const STYLES = styled.div`
     //font-family: 'Roboto', sans-serif;
     font-family: 'Roboto', sans-serif;
     background: snow;
+    position: fixed;
+    width: 100%;
 
     h1, h2, h3, h4, h5 {
         font-family: 'Arapey', serif;
