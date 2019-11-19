@@ -10,6 +10,8 @@ const STYLES = styled.div`
     background: snow;
     position: fixed;
     width: 100%;
+    display: flex;
+
 
     h1, h2, h3, h4, h5 {
         font-family: 'Arapey', serif;
@@ -18,14 +20,14 @@ const STYLES = styled.div`
     .navbar {
         display: flex;
         flex-direction: row;
-        //justify-content: space-between;
         height: 5em;
+        width: 100%;
+        position: fixed;
+        background: snow;  
     }
 
     .logo {
         flex: 1;
-        width: 150px;
-        //background: red;
     }
 
     .nav {
@@ -109,7 +111,6 @@ const STYLES = styled.div`
 
     .hamburger {
         flex: 1;
-        //background: blue;
     }
 
     @media(max-width: 500px) {
@@ -147,21 +148,21 @@ class Navbar extends Component {
         console.log(this.state.hoverMenu);
         return (
             <STYLES>
-                <div className="navbar">
+                <navbar className="navbar">
                     <div className="logo"></div>
-                    <ul className="nav">
-                        <li className="nav-link" onMouseEnter={this.hover} onMouseLeave={this.hover}>
-                            <a href="#">Shop</a>
-                        </li>
-                        <li className="nav-link" >
-                            <a href="#">About Us</a>
-                        </li>
-                        <li className="nav-link" >
-                            <a href="#">Sales</a>
-                        </li>
-                    </ul>
+                        <ul className="nav">
+                            <li className="nav-link" onMouseEnter={this.hover} onMouseLeave={this.hover}>
+                                <a href="#">Shop</a>
+                            </li>
+                            <li className="nav-link" >
+                                <a href="#">About Us</a>
+                            </li>
+                            <li className="nav-link" >
+                                <a href="#">Sales</a>
+                            </li>
+                        </ul>
                     <div className="hamburger"></div>
-                </div>
+                </navbar>
                 {this.state.hoverMenu ? 
                     <div className="hover-menu">
                         <ul className="hover-ul">

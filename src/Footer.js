@@ -14,8 +14,9 @@ const STYLES = styled.div`
 
     .container {
         display: flex;
-        height: 30em;
-        width: 100%;s
+        height: auto;
+        width: 100%;
+        flex-wrap: wrap;
     }
 
     .section {
@@ -59,10 +60,6 @@ class Footer extends Component {
         return (
             <STYLES>
             <footer>
-                <div className="footer-branding">
-                    <h2>Nick's Hat Store</h2>
-                    <p>Est 2019</p>
-                </div>
                 <div className="container">
                     <div className="section">
                         <ul className="section-ul">
