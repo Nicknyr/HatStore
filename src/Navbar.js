@@ -24,6 +24,8 @@ const STYLES = styled.div`
         width: 100%;
         position: fixed;
         background: snow;  
+        z-index: 99;
+        border-top: 3px solid #FFA400;
     }
 
     .logo {

@@ -5,6 +5,8 @@ import Hat2Blue from './assets/hat2-blue.jpg';
 import Hat2Grey from './assets/hat2-grey.jpg';
 import Hat2 from './assets/hat2.jpg';
 import Hat2BlueColor from './assets/hat2/blue.png';
+import Hat2BrownColor from './assets/hat2/brown.png';
+import Hat2GreyColor from './assets/hat2/grey.png';
 
 const STYLES = styled.div`
     //border: 5px solid goldenrod;
@@ -58,8 +60,19 @@ const STYLES = styled.div`
         width: 20px;
         border: 1px solid black;
         margin: .5em .2em;
-        background-image: url(${Hat2BlueColor});
         background-size: cover;
+    }
+
+    #Hat2Brown {
+        background-image: url(${Hat2BrownColor});
+    }
+
+    #Hat2Blue {
+        background-image: url(${Hat2BlueColor});
+    }
+
+    #Hat2Grey {
+        background-image: url(${Hat2GreyColor});
     }
 
     @media(max-width: 500px) {
@@ -75,11 +88,17 @@ class FeaturedProducts extends Component {
         super(props);
 
         this.state = {
-            hat2: 'brown'
+            hat2: 'Hat2Brown'
         };
     }
 
     handleColorOptionClicked = (e) => {
+        this.setState({
+            hat2: e.target.id
+        })
+    }
+
+    handleMouseEnter = (e) => {
         this.setState({
             hat2: e.target.id
         })
@@ -100,32 +119,40 @@ class FeaturedProducts extends Component {
                        </div>
                    </div>
                    <div className="featured-item item-2">
-                       {this.state.hat2 === "brown" ?
-                            <img src={Hat2} height="150" />
-                       : null}
-                       {this.state.hat2 === "blue" ?
-                            <img src={Hat2Blue} height="150" />
-                       : null}
-                       {this.state.hat2 === "grey" ?
-                            <img src={Hat2Grey} height="150" />
-                       : null}
+                       <a href="http://localhost:3000/product">
+                        {this.state.hat2 === "Hat2Brown" ?
+                                <img src={Hat2} height="150" />
+                        : null}
+                        {this.state.hat2 === "Hat2Blue" ?
+                                <img src={Hat2Blue} height="150" />
+                        : null}
+                        {this.state.hat2 === "Hat2Grey" ?
+                                <img src={Hat2Grey} height="150" />
+                        : null}
+                       </a>
                        <h3>Hat Two</h3>
                        <p>$45</p>
                        <div className="options-container">
                              <div 
                                 className="color-options"
-                                id="brown"
-                                onClick={(e) => this.handleColorOptionClicked(e)}>
+                                id="Hat2Brown"
+                                onClick={(e) => this.handleColorOptionClicked(e)}
+                                onMouseEnter={this.handleMouseEnter}  
+                              >
                             </div>
                             <div 
                                 className="color-options"
-                                id="blue"
-                                onClick={(e) => this.handleColorOptionClicked(e)}>
+                                id="Hat2Blue"
+                                onClick={(e) => this.handleColorOptionClicked(e)}
+                                onMouseEnter={this.handleMouseEnter}
+                            >
                             </div>
                             <div 
                                 className="color-options"
-                                id="grey"
-                                onClick={(e) => this.handleColorOptionClicked(e)}>
+                                id="Hat2Grey"
+                                onClick={(e) => this.handleColorOptionClicked(e)}
+                                onMouseEnter={this.handleMouseEnter}    
+                            >
                             </div>
                        </div>
                    </div>
