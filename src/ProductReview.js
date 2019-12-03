@@ -6,9 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const STYLES = styled.div`
     //background: red;
     height: auto;
-    width: auto;
+    width: 100%;
     display: flex;
     font-family: 'Roboto', sans-serif;
+    background: #f5f5f5;
+    padding-top: 3em;
+    padding-bottom: 3em;
 
     h1 {
         display: flex;
@@ -53,12 +56,16 @@ const STYLES = styled.div`
     }
 
     @media(min-width: 768px) {
-        width: 70%;
-        margin: 0 auto;
+        .review-ul {
+            width: 75%;
+            margin: 0 auto;
+        }
     }
 
     @media(min-width: 800px) {
-        width: 50%;
+        .review-ul {
+            width: 50%;
+        }
     }
 `;
 
@@ -67,9 +74,9 @@ const ProductReview = () => {
         <STYLES>
             <div className="review-section">
                 <h1>Reviews</h1>
-                <ul>
+                <ul className="review-ul">
                     <li>
-                        <p className="name">By <span className="username">Léna Ernie</span> on Date</p>
+                        <p className="name">By <span className="username">Léna Ernie</span> on 28 Aug. 2019</p>
                         <p className="stars">
                             <FontAwesomeIcon
                                 icon="star"
@@ -90,7 +97,7 @@ const ProductReview = () => {
                         <p className="review">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Parturient montes nascetur ridiculus mus mauris vitae ultricies leo.</p>
                     </li>
                     <li>
-                        <p className="name">By <span className="username">Annabel Sebastian</span> on Date</p>
+                        <p className="name">By <span className="username">Annabel Sebastian</span> on 2 Feb. 2019 </p>
                         <p className="stars">
                         <FontAwesomeIcon
                                 icon="star"
@@ -121,7 +128,7 @@ const ProductReview = () => {
                         <p className="review">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget duis at tellus at urna condimentum mattis pellentesque.</p>
                     </li>
                     <li>
-                        <p className="name">By <span className="username">Corey Severino</span> on Date</p>
+                        <p className="name">By <span className="username">Corey Severino</span> 11 Sep. 2018</p>
                         <p className="stars">
                         <FontAwesomeIcon
                                 icon="star"
@@ -147,7 +154,7 @@ const ProductReview = () => {
                         <p className="review">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. Felis imperdiet proin fermentum leo. Lacus suspendisse faucibus interdum posuere lorem. Purus in mollis nunc sed id semper. Sed euismod nisi porta lorem mollis aliquam ut. Nisi est sit amet facilisis magna etiam.</p>
                     </li>
                     <li>
-                        <p className="name">By <span className="username">Nicolaos Cai</span> on Date</p>
+                        <p className="name">By <span className="username">Nicolaos Cai</span> on 4 Sep. 2018</p>
                         <p className="stars">
                         <FontAwesomeIcon
                                 icon="star"
@@ -173,7 +180,7 @@ const ProductReview = () => {
                         <p className="review">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet purus gravida quis blandit. Consequat ac felis donec et odio pellentesque. Felis eget velit aliquet sagittis id consectetur. Morbi tincidunt ornare massa eget egestas purus.</p>
                     </li>
                     <li>
-                        <p className="name">By <span className="username">Eveline Paskal</span> on Date</p>
+                        <p className="name">By <span className="username">Eveline Paskal</span> on 29 May 2017</p>
                         <p className="stars">
                         <FontAwesomeIcon
                                 icon="star"
@@ -199,7 +206,7 @@ const ProductReview = () => {
                         <p className="review">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Volutpat est velit egestas dui.</p>
                     </li>
                     <li>
-                        <p className="name">By <span className="username">Kurt Gene</span> on Date</p>
+                        <p className="name">By <span className="username">Kurt Gene</span> on 23 Jan. 2017</p>
                         <p className="stars">
                             <FontAwesomeIcon
                                 icon="star"

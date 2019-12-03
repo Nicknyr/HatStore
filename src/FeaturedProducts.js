@@ -39,6 +39,8 @@ const STYLES = styled.div`
         justify-content: space-around;
         flex-wrap: wrap;
         align-content: space-around;
+        padding-left: 2em;
+        padding-right: 2em;
     }
 
     .featured-item {

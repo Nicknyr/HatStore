@@ -20,6 +20,34 @@ const STYLES = styled.div`
     padding-top: 7em;
     padding-bottom: 7em;
 
+    .breadcrumbs {
+        height: 2em;
+        width: 100%;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        ul {
+            margin-left: 1em;
+
+            li {
+                display: inline-block;
+                margin-right: 1em;
+
+                a {
+                    text-decoration: none;
+                    color: #666;
+                    font-size: .9em;
+                }
+
+                span {
+                    margin-left: 1em;
+                }
+            }
+        }
+    }
+
     .image-container {
         display: flex;
         height: 100vh;
@@ -142,6 +170,25 @@ class ProductPage extends Component {
             <div>
             <Navbar />
                 <STYLES>
+                    <div className="breadcrumbs">
+                        <ul>
+                            <li>
+                                <a href="http://localhost:3000">Home</a>
+                                <span>
+                                    >
+                                </span>
+                            </li>
+                            <li>
+                                <a href="#">Hats</a>
+                                <span>
+                                    >
+                                </span>
+                            </li>
+                            <li>
+                                <a href="#">Hat One</a>
+                            </li>
+                        </ul>
+                    </div>
                     <div className="image-container">
                         {/*<img src={Hat2} height="350" />*/}
                         <ImageGallery 

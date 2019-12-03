@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import Hat1 from './assets/hat1.jpg';
+import Logo from './assets/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import OutsideClickHandler from 'react-outside-click-handler';
+//import HamburgerMenu from './HamburgerMenu';
 
 const STYLES = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Arapey|Roboto:400,500&display=swap');
@@ -25,11 +29,15 @@ const STYLES = styled.div`
         position: fixed;
         background: snow;  
         z-index: 99;
-        border-top: 3px solid #FFA400;
+        //border-top: 3px solid #FFA400;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
 
     .logo {
         flex: 1;
+        display: flex;
+        align-items: center;
+        padding-left: 1em;
     }
 
     .nav {
@@ -41,8 +49,8 @@ const STYLES = styled.div`
         color: black;
         margin: 0;
         padding: 0;
-        margin-left: auto;
-        margin-right: auto;
+        //margin-left: auto;
+        margin-right: 7em;
         
         li {
             display: inline-block;
@@ -73,6 +81,7 @@ const STYLES = styled.div`
         border: 1px solid lightgrey;
         position: absolute;
         z-index: 100;
+        margin-top: 5em;
     }
 
     .hover-ul {
@@ -87,13 +96,25 @@ const STYLES = styled.div`
         //background: red;
 
         h3 {
-            font-size: 1.4em;
+            font-size: 1.6em;
+            font-weight: 500;
+            margin-top: .5em;
+            margin-bottom: 1em;
+            font-weight: 500;
         }
         
         a {
             margin: 3em;
+            text-decoration: none;
+
+            &:hover {
+                font-size: 1.1em;
+            }
         }
     }
+
+    .grow { transition: all .2s ease-in-out; }
+    .grow:hover { transform: scale(1.2); }
 
     .hover-ul-items {
         list-style-type: none;
@@ -101,18 +122,24 @@ const STYLES = styled.div`
         margin: 1em;
 
         li {
-            margin: .5em;
+            margin: 1em;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
         }
     }
 
     .hover-preview-image {
         display: flex;
         flex: 1;
-        background: blue;
+        //background: blue;
+        justify-content: center;
     }
 
     .hamburger {
-        flex: 1;
+        display: none;
     }
 
     @media(max-width: 500px) {
@@ -123,6 +150,42 @@ const STYLES = styled.div`
         .navbar {
             justify-content: space-between;
         }
+
+        .hamburger {
+            //background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1em;
+        }
+
+        .hamburger-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100%;
+            background: #181715;
+            font-family: 'Arapey', serif;
+
+            ul {
+                width: 100%;
+                margin-top: 3em;
+                text-align: center;
+
+                li {
+                    display: block;
+                    margin-top: 4em;
+
+                    a {
+                        text-decoration: none;
+                        font-size: 1.8em;
+                        color: snow;
+                    }
+                }
+            }
+        }
+        
     }
    
 `;
@@ -132,7 +195,8 @@ class Navbar extends Component {
         super(props);
 
         this.state = {
-            hoverMenu: false
+            hoverMenu: false,
+            hamburgerMenuOpen: false
         };
     }
 
@@ -146,54 +210,113 @@ class Navbar extends Component {
         })
     }
 
+    handleHamburgerClick = () => {
+        //alert("hamburger clicked");
+        this.setState({
+            hamburgerMenuOpen: !this.state.hamburgerMenuOpen
+        })
+    }
+
     render() {
         console.log(this.state.hoverMenu);
         return (
             <STYLES>
                 <navbar className="navbar">
-                    <div className="logo"></div>
+                    <div className="logo">
+                        <a href="http://localhost:3000">
+                            <img src={Logo} height="40" />
+                        </a>
+                    </div>
                         <ul className="nav">
-                            <li className="nav-link" onMouseEnter={this.hover} onMouseLeave={this.hover}>
+                            <li className="nav-link" onMouseEnter={this.hover} >
                                 <a href="#">Shop</a>
                             </li>
                             <li className="nav-link" >
-                                <a href="#">About Us</a>
+                                <a href="http://localhost:3000/about">About Us</a>
                             </li>
                             <li className="nav-link" >
                                 <a href="#">Sales</a>
                             </li>
                         </ul>
-                    <div className="hamburger"></div>
+                        <div 
+                            className="hamburger"
+                            onClick={this.handleHamburgerClick}
+                        >
+                            <FontAwesomeIcon
+                                icon="bars"
+                                size="3x"
+                                color="black"
+                            />
+                        </div>
                 </navbar>
+                { this.state.hamburgerMenuOpen ?
+                    <div className="hamburger-menu">
+                        <ul>
+                            <li>
+                                <a href="#">Shop</a>
+                            </li>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Sales</a>
+                            </li>
+                        </ul>
+                    </div>
+                : null }
+                {/* Hover Menu */ }
                 {this.state.hoverMenu ? 
-                    <div className="hover-menu">
+                    <div className="hover-menu" onMouseLeave={this.hover}>
                         <ul className="hover-ul">
                             <li className="hover-li">
                                 <h3>Hats</h3>
                                 <ul className="hover-ul-items">
-                                    <li>Hat 1</li>
-                                    <li>Hat 2</li>
-                                    <li>Hat 3</li>
-                                    <li>Hat 4</li>
-                                    <li>Hat 5</li>
-                                    <li>Hat 6</li>
+                                    <li className="grow">
+                                       <a href="#">Hat 1</a>
+                                    </li>
+                                    <li className="grow">
+                                       <a href="#">Hat 2</a>
+                                    </li>
+                                    <li className="grow">
+                                       <a href="#">Hat 3</a>
+                                    </li>
+                                    <li className="grow">
+                                       <a href="#">Hat 4</a>
+                                    </li>
+                                    <li className="grow">
+                                       <a href="#">Hat 5</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li className="hover-li">
                                 <h3>Collections</h3>
                                 <ul className="hover-ul-items">
-                                    <li>Collection 1</li>
-                                    <li>Collection 2</li>
-                                    <li>Collection 3</li>
-                                    <li>Collection 4</li>
+                                    <li className="grow">
+                                        <a href="#">Collection 1</a>
+                                    </li>
+                                    <li className="grow">
+                                        <a href="#">Collection 2</a>
+                                    </li>
+                                    <li className="grow">
+                                        <a href="#">Collection 3</a>
+                                    </li>
+                                    <li className="grow">
+                                        <a href="#">Collection 4</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li className="hover-li">
-                                <h3>New</h3>
+                                <h3>New Items</h3>
                                 <ul className="hover-ul-items">
-                                    <li>New Item 1</li>
-                                    <li>New Item 2</li>
-                                    <li>New Item 3</li>
+                                    <li className="grow">
+                                        <a href="#">Item 1</a>
+                                    </li>
+                                    <li className="grow">
+                                        <a href="#">Item 2</a>
+                                    </li>
+                                    <li className="grow">
+                                        <a href="#">Item 3</a>
+                                    </li>
                                 </ul>
                             </li>
                             <div className="hover-preview-image">
