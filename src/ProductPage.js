@@ -54,11 +54,17 @@ const STYLES = styled.div`
         width: 45%;
         justify-content: center;
         align-items: center;
+        //z-index: -1;
+    }
+
+    .image-gallery-slide {
+        //z-index: -1;
     }
 
     .image-gallery {
         //margin-left: 3em;
         //margin-right: 3em;
+        //z-index: -1;
     }
 
     .info-container {

@@ -23,6 +23,8 @@ const STYLES = styled.div`
         font-size: 1.1em;
         font-weight: 400;
         flex-basis: 20%;
+        padding: 1em;
+        line-height: 1.2;
     }
 `;
 
