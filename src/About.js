@@ -10,7 +10,8 @@ const STYLES = styled.div`
 
     @media(max-width: 500px) {
         .about-section {
-        padding: 10em 0;
+            padding: 10em 0;
+            font-size: 1.1em;
 
             h1 {
                 display: flex;
@@ -26,10 +27,15 @@ const STYLES = styled.div`
                 display: flex;
                 justify-content: center;
                 align-content: center;
-                //margin-top: 1em;
+                margin-top: 1em;
                 font-family: 'Arapey', serif;
                 font-size: 1.5em;
                 text-transform: uppercase;
+            }
+
+            .quality-h2 {
+                margin-top: 2em;
+                margin-bottom: 2em;
             }
 
             .section {
@@ -37,14 +43,65 @@ const STYLES = styled.div`
                 padding: 1em;
                 line-height: 1.4;
                 margin-top: 1.5em;
+                width: 90%;
+                margin: 0 auto;
+
+                h2 {
+                    font-family: 'Arapey', serif;
+                    font-size: 1.5em;
+                    text-transform: uppercase;
+                    margin: .5em;
+                }
 
                 p {
                     margin-top: 1em;
+                    line-height: 1.4;
                 }
             }
 
         }
+
     }
+
+
+    @media(max-width: 2000px) {
+        .about-section {
+            padding-top: 10em;
+            font-size: 1.1em;
+            line-height: 1.2;
+            margin-bottom: 10em;
+
+            h1 {
+                font-size: 2.2em;
+            }
+        }
+
+        .quality-h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        .section {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            
+            p {
+                text-align: left;
+                margin-top: 1em;
+            }
+
+            h2 {
+                font-family: 'Arapey', serif;
+                font-size: 1.7em;
+                text-transform: uppercase;
+                margin: 1em;
+            }
+        }
+    }
+    
 
 
 `;
@@ -56,8 +113,8 @@ const About = () => {
             <STYLES>
                 <div className="about-section">
                     <h1>About Us</h1>
-                    <img src={Skyline}  height="200"/>
-                    <h2>Quality Men's Hats since 1955</h2>
+                    <img src={Skyline} width="300"/>
+                    <h2 className="quality-h2">Quality Men's Hats since 1955</h2>
 
                     <div className="history section">
                         <h2>History</h2>

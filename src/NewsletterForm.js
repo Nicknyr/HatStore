@@ -84,7 +84,7 @@ const NewsLetterForm = () => {
                 handleSubmit,
                 isSubmitting }) => (
                 <form onSubmit={handleSubmit}>
-                    {console.log(values)}
+                    {/*console.log(values)*/}
                     <fieldset>
                         <input 
                             type="text"

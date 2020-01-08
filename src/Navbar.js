@@ -4,6 +4,7 @@ import Hat1 from './assets/hat1.jpg';
 import Logo from './assets/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OutsideClickHandler from 'react-outside-click-handler';
+import NavbarHoverMenu from './NavbarHoverMenu';
 //import HamburgerMenu from './HamburgerMenu';
 
 const STYLES = styled.div`
@@ -196,8 +197,15 @@ class Navbar extends Component {
 
         this.state = {
             hoverMenu: false,
-            hamburgerMenuOpen: false
+            hamburgerMenuOpen: false,
+            hatToShow: {
+                hat1: Hat1
+            }
         };
+    }
+
+    hi = () => {
+        alert("Hi!");
     }
 
     handleMouseHover = () => {
@@ -266,6 +274,24 @@ class Navbar extends Component {
                 : null }
                 {/* Hover Menu */ }
                 {this.state.hoverMenu ? 
+                    <NavbarHoverMenu 
+                        onHover={this.hover}
+                        hatToShow={this.state.hatToShow}
+                        onLinkHover={this.hi}
+                    />
+                : null}
+            </STYLES>
+        );
+    }
+}
+
+export default Navbar;
+
+
+
+
+
+{/*
                     <div className="hover-menu" onMouseLeave={this.hover}>
                         <ul className="hover-ul">
                             <li className="hover-li">
@@ -324,10 +350,4 @@ class Navbar extends Component {
                             </div>
                         </ul>
                     </div>
-                : null}
-            </STYLES>
-        );
-    }
-}
-
-export default Navbar;
+                   */}

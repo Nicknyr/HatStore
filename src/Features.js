@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import ManInHat from './assets/man-in-hat.png';
+import Brick from './assets/brick.png';
 
 const STYLES = styled.div`
     .features-section {
@@ -19,7 +20,8 @@ const STYLES = styled.div`
     .right {
         height: 30em;
         width: 50%;
-        background: #f4f4f4;
+        background-image: url(${Brick});
+        background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,6 +30,7 @@ const STYLES = styled.div`
         p {
             font-size: 2.5em;
             width: 80%;
+            color: #FFF;
         }
     }
 

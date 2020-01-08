@@ -13,6 +13,8 @@ import Hat3Dark from './assets/hat3/hat3dark.png';
 import Hat4Grey from './assets/hat4/hat4grey.png';
 import Hat4Check from './assets/hat4/hat4check.png';
 import FeaturedItem from './FeaturedItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FeaturedIn from './FeaturedIn';
 
 const STYLES = styled.div`
     //border: 5px solid goldenrod;
@@ -28,15 +30,55 @@ const STYLES = styled.div`
         font-size: .7em;
     }
 
-    h2 {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        padding: 2.5em;
-        font-family: 'Arapey', serif;
-        font-size: 2.4em;
-        text-transform: uppercase;
+    .h2-container {
+        margin-top: 4em;
+        margin-bottom: 4em;
+
+        h2 {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            //padding: 2.5em;
+            font-family: 'Arapey', serif;
+            font-size: 2.1em;
+            text-transform: uppercase;
+        }
+
+        .fa-xs, .fa-sm {
+            margin: .5em;
+            display: inline;
+            padding-top: .3em;
+        }
+
+        .fa-xs {
+            font-size: 9px;
+        }
+
+        .fa-sm {
+            font-size: 11px;
+        }
+
+        .hr-right {
+            width: 40px;
+            position: relative;
+            display: inline-block;
+            left: 110px;
+            border: none;
+            height: 1px;
+            background-color: #333;
+        }
+
+        .hr-left {
+            width: 40px;
+            position: relative;
+            display: inline-block;
+            right: 110px;
+            border: none;
+            height: 1px;
+            background-color: #333;
+        }
     }
+
 
     .container {
         height: auto;
@@ -71,24 +113,11 @@ const STYLES = styled.div`
         background-size: cover;
     }
 
-    #Hat2Brown {
-        background-image: url(${Hat2BrownColor});
-    }
-
-    #Hat2Blue {
-        background-image: url(${Hat2BlueColor});
-    }
-
-    #Hat2Grey {
-        background-image: url(${Hat2GreyColor});
-    }
-
-    #Hat4Grey {
-        background-image: url(${Hat4Grey});
-    }
-
-    #Hat4Check {
-        background-image: url(${Hat4Check});
+    .featured-in {
+        height: 10em;
+        width: 100%;
+        background-color: #F0F0F0;
+        margin: 0 auto;
     }
 
     @media(max-width: 500px) {
@@ -105,25 +134,40 @@ class FeaturedProducts extends Component {
 
         this.state = {
             hat2: {
-                hatImg: Hat2,
-                hatPrice: '$50',
-                hatName: 'Hat Two'
+                img: {
+                    hat2: Hat2,
+                    hat2Grey: Hat2Grey,
+                    hat2Blue: Hat2Blue
+                },
+                colors: {
+                    Hat2BlueColor,
+                    Hat2BrownColor
+                },
+                price: '$50',
+                name: 'Hat Two'
             },
             hat3: {
-                hatImg: Hat3,
-                hatPrice: '$40',
-                hatName: 'Hat Three'
+                img: Hat3,
+                colors: {
+                    Hat2BlueColor,
+                    Hat2BrownColor
+                },
+                price: '$40',
+                name: 'Hat Three'
             },
             hat4: {
-                hatImg: Hat4Grey,
-                hatPrice: '$60',
-                hatName: 'Hat Four'
+                img: Hat4Grey,
+                colors: {
+                    Hat2BlueColor,
+                    Hat2BrownColor
+                },
+                price: '$60',
+                name: 'Hat Four'
             }
         };
     }
 
     handleColorOptionClicked = (e) => {
-        console.log('e.target is : ' + e.target);
         this.setState({
             hat2: e.target.id,
             hat3: e.target.id,
@@ -140,12 +184,96 @@ class FeaturedProducts extends Component {
     }
 
     render() {
-        console.log(this.state.hat2)
+        //console.log(this.state.hat2)
         return(
             <STYLES>
-                <h2>Featured Products</h2>
+                <div className="h2-container">
+                    <h2>Featured Products</h2>
+                    <hr className="hr-right"/>
+                    <FontAwesomeIcon
+                        icon={'star'}
+                        size="xs"
+                        color="#333"
+                    />
+                    <FontAwesomeIcon
+                        icon={'star'}
+                        size="sm"
+                        color="#333"
+                    />
+                    <FontAwesomeIcon
+                        icon={'star'}
+                        size="xs"
+                        color="#333"
+                    />
+                    <hr className="hr-left"/>
+                </div>
                 <div className="container">
-                    {/*
+                   <FeaturedItem 
+                        img={this.state.hat2.img.hat2}
+                        price={this.state.hat2.price}
+                        name={this.state.hat2.name} 
+                        handleMouseEnter={this.handleMouseEnter}
+                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
+                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
+                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
+                    />
+                   <FeaturedItem 
+                        img={this.state.hat3.img}
+                        price={this.state.hat3.price}
+                        name={this.state.hat3.name} 
+                        handleMouseEnter={this.handleMouseEnter}
+                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
+                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
+                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
+                    />
+                    <FeaturedItem 
+                        img={this.state.hat4.img}
+                        price={this.state.hat4.price}
+                        name={this.state.hat4.name} 
+                        handleMouseEnter={this.handleMouseEnter}
+                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
+                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
+                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
+                    />
+                </div>
+                <div className="container">
+                   <FeaturedItem 
+                        img={this.state.hat2.img.hat2}
+                        price={this.state.hat2.price}
+                        name={this.state.hat2.name} 
+                        handleMouseEnter={this.handleMouseEnter}
+                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
+                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
+                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
+                    />
+                   <FeaturedItem 
+                        img={this.state.hat3.img}
+                        price={this.state.hat3.price}
+                        name={this.state.hat3.name} 
+                        handleMouseEnter={this.handleMouseEnter}
+                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
+                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
+                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
+                    />
+                    <FeaturedItem 
+                        img={this.state.hat4.img}
+                        price={this.state.hat4.price}
+                        name={this.state.hat4.name} 
+                        handleMouseEnter={this.handleMouseEnter}
+                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
+                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
+                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
+                    />
+                </div>
+                <FeaturedIn />
+            </STYLES>
+        );
+    }
+}
+
+export default FeaturedProducts;
+
+{/*
                    <div className="featured-item item-1">
                        {this.state.hat3 === "Hat3" ?
                             <img src={Hat3} height="150" />
@@ -179,92 +307,4 @@ class FeaturedProducts extends Component {
                             </div>
                        </div>
                    </div>
-                   <div className="featured-item item-2">
-                       <a href="http://localhost:3000/product">
-                        {this.state.hat2 === "Hat2Brown" ?
-                                <img src={Hat2} height="150" />
-                        : null}
-                        {this.state.hat2 === "Hat2Blue" ?
-                                <img src={Hat2Blue} height="150" />
-                        : null}
-                        {this.state.hat2 === "Hat2Grey" ?
-                                <img src={Hat2Grey} height="150" />
-                        : null}
-                       </a>
-                       <h3>Hat Two</h3>
-                       <p>$45</p>
-                       <div className="options-container">
-                             <div 
-                                className="color-options"
-                                id="Hat2Brown"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}  
-                              >
-                            </div>
-                            <div 
-                                className="color-options"
-                                id="Hat2Blue"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}
-                            >
-                            </div>
-                            <div 
-                                className="color-options"
-                                id="Hat2Grey"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}    
-                            >
-                            </div>
-                       </div>
-                   </div>
-                   <div className="featured-item item-3">
-                        <a href="http://localhost:3000/product">
-                            {this.state.hat4 === "Hat4Grey" ?
-                                    <img src={Hat4Grey} height="150" />
-                            : null}
-                            {this.state.hat4 === "Hat4Check" ?
-                                    <img src={Hat4Check} height="150" />
-                            : null}
-                       </a>
-                       <h3>Hat 4</h3>
-                       <p>$50</p>
-                       <div className="options-container">
-                            <div 
-                                className="color-options"
-                                id="Hat4Grey"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}  
-                              >
-                            </div>
-                            <div 
-                                className="color-options"
-                                id="Hat4Check"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}
-                            >
-                            </div>
-                       </div>
-                   </div>
                     */}
-                   <FeaturedItem 
-                        hatImg={this.state.hat2.hatImg}
-                        hatPrice={this.state.hat2.hatPrice}
-                        hatName={this.state.hat2.hatName} 
-                    />
-                   <FeaturedItem 
-                        hatImg={this.state.hat3.hatImg}
-                        hatPrice={this.state.hat3.hatPrice}
-                        hatName={this.state.hat3.hatName} 
-                    />
-                    <FeaturedItem 
-                        hatImg={this.state.hat4.hatImg}
-                        hatPrice={this.state.hat4.hatPrice}
-                        hatName={this.state.hat4.hatName} 
-                    />
-                </div>
-            </STYLES>
-        );
-    }
-}
-
-export default FeaturedProducts;
