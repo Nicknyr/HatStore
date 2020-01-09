@@ -6,6 +6,9 @@ import AboutSection from './AboutSection';
 import Features from './Features';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
+import SaleProducts from './SaleProducts';
+import FeaturedIn from './FeaturedIn';
+import Blog from './Blog';
 
 const Home = () => {
     return (
@@ -14,7 +17,10 @@ const Home = () => {
             <Jumbotron />
             <FeaturedProducts />
             <Features />
+            <SaleProducts />
+            <FeaturedIn />
             <Newsletter />
+            <Blog />
             <Footer />
         </div>
     );

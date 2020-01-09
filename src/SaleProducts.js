@@ -13,6 +13,7 @@ import Hat3Dark from './assets/hat3/hat3dark.png';
 import Hat4Grey from './assets/hat4/hat4grey.png';
 import Hat4Check from './assets/hat4/hat4check.png';
 import FeaturedItem from './FeaturedItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FeaturedIn from './FeaturedIn';
 import H2 from './H2Section';
 
@@ -28,6 +29,53 @@ const STYLES = styled.div`
     h3 {
         margin: .5em;
         font-size: .7em;
+    }
+
+    .h2-container {
+        margin-top: 4em;
+        margin-bottom: 4em;
+
+        h2 {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            //padding: 2.5em;
+            font-family: 'Arapey', serif;
+            font-size: 2.1em;
+            text-transform: uppercase;
+        }
+
+        .fa-xs, .fa-sm {
+            margin: .5em;
+            display: inline;
+            padding-top: .3em;
+        }
+
+        .fa-xs {
+            font-size: 9px;
+        }
+
+        .fa-sm {
+            font-size: 11px;
+        }
+
+        .hr {
+            width: 40px;
+            position: relative;
+            display: inline-block;
+            border: none;
+            height: 1px;
+            background-color: #333;
+            z-index: -999;
+        }
+
+        .hr-right {
+            left: 110px;
+        }
+
+        .hr-left {
+            right: 110px;
+        }
     }
 
 
@@ -79,7 +127,7 @@ const STYLES = styled.div`
 `;
 
 
-class FeaturedProducts extends Component {
+class SaleProducts extends Component {
     constructor(props) {
         super(props);
 
@@ -135,39 +183,9 @@ class FeaturedProducts extends Component {
     }
 
     render() {
-        //console.log(this.state.hat2)
         return(
             <STYLES>
-                <H2 title="Featured Products" />
-                <div className="container">
-                   <FeaturedItem 
-                        img={this.state.hat2.img.hat2}
-                        price={this.state.hat2.price}
-                        name={this.state.hat2.name} 
-                        handleMouseEnter={this.handleMouseEnter}
-                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
-                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
-                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
-                    />
-                   <FeaturedItem 
-                        img={this.state.hat3.img}
-                        price={this.state.hat3.price}
-                        name={this.state.hat3.name} 
-                        handleMouseEnter={this.handleMouseEnter}
-                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
-                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
-                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
-                    />
-                    <FeaturedItem 
-                        img={this.state.hat4.img}
-                        price={this.state.hat4.price}
-                        name={this.state.hat4.name} 
-                        handleMouseEnter={this.handleMouseEnter}
-                        handleColorOptionClicked={(e) => this.handleColorOptionClicked(e)}
-                        colorOption1={this.state.hat2.colors.Hat2BlueColor}
-                        colorOption2={this.state.hat2.colors.Hat2BrownColor}
-                    />
-                </div>
+                <H2 title="On Sale" />
                 <div className="container">
                    <FeaturedItem 
                         img={this.state.hat2.img.hat2}
@@ -202,40 +220,4 @@ class FeaturedProducts extends Component {
     }
 }
 
-export default FeaturedProducts;
-
-{/*
-                   <div className="featured-item item-1">
-                       {this.state.hat3 === "Hat3" ?
-                            <img src={Hat3} height="150" />
-                       : null }
-                       {this.state.hat3 === "Hat3Checkered" ?
-                            <img src={Hat3Checkered} height="150" />
-                       : null}
-                       {this.state.hat3 === "Hat3Dark" ?
-                            <img src={Hat3Dark} height="150" />
-                       : null}
-                       <h3>Hat One</h3>
-                       <p>$40</p>
-                       <div className="options-container">
-                            <div 
-                                className="color-options"
-                                id="Hat3"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}>
-                            </div>
-                            <div 
-                                className="color-options"
-                                id="Hat3Checkered"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}>
-                            </div>
-                            <div 
-                                className="color-options"
-                                id="Hat3Dark"
-                                onClick={(e) => this.handleColorOptionClicked(e)}
-                                onMouseEnter={this.handleMouseEnter}>
-                            </div>
-                       </div>
-                   </div>
-                    */}
+export default SaleProducts;
