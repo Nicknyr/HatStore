@@ -16,10 +16,11 @@ const STYLES = styled.div`
 
     img {
         transition: .3s;
+        z-index: -999;
 
         &:hover {
             filter: brightness(50%);
-            //transform: rotate(360deg);
+            z-index: -999;
         }
     }
 
@@ -33,7 +34,13 @@ const STYLES = styled.div`
         left: 0px;
         background: transparent;
         color: snow;
+        font-weight: 200;
         cursor: pointer;
+
+        &:hover {
+            background: snow;
+            color: black;
+        }
     }
 
 
@@ -54,7 +61,7 @@ const STYLES = styled.div`
 
     .blog-info {
         //background: red;
-        padding-top: .5em;
+        //padding-top: .1em;
         text-align: left;
         color: #838383;
 

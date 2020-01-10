@@ -13,14 +13,14 @@ const STYLES = styled.div`
     .left {
         height: 30em;
         width: 50%;
-        background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(${ManInHat});
+        background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(${ManInHat});
         background-size: cover;
     }
 
     .right {
         height: 30em;
         width: 50%;
-        background-image: url(${Brick});
+        background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${Brick});
         background-size: cover;
         display: flex;
         justify-content: center;

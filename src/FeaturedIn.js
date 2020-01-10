@@ -9,15 +9,32 @@ import Brand6 from './assets/brands/brand6.png';
 
 const STYLES = styled.div`
     background: #F0F0F0;
-    height: 12em;
+    //height: auto;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
 
     .brands {
+        height: 60em;
         display: flex;
-        align-content: space-between;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
+
+    @media(min-width: 500px) {
+        flex-direction: row;
+        height: 12em;
+
+        .brands {
+            height: auto;
+            flex-direction: row;
+            
+        }
+    } 
+    
 `;
 
 const FeaturedIn = () => {
@@ -38,3 +55,4 @@ const FeaturedIn = () => {
 }
 
 export default FeaturedIn;
+

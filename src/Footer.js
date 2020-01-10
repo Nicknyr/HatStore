@@ -50,17 +50,26 @@ const STYLES = styled.div`
             font-weight: bold;
         }
 
-        li {
+        li  {
             font-family: 'Roboto', sans-serif;
             margin: .7em;
             text-align: left;
             font-size: 1em;
             line-height: 1.2;
             font-size: .9em;
-            color: #F7F7F7;
 
-            &:hover {
-                color: #4ECDC4;
+            a {
+                color: #F7F7F7;;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                margin: .7em;
+                text-align: left;
+                font-size: 1em;
+                line-height: 1.2;
+
+                &:hover {
+                    color: #4ECDC4;
+                }
             }
         }
     }
@@ -72,6 +81,10 @@ const STYLES = styled.div`
             display: inline !important;
             margin: .5em !important;
             font-size: 1em !important;
+
+            a {
+                margin: .1em;
+            }
         }
 
         .fa-2x {
@@ -118,6 +131,7 @@ class Footer extends Component {
         return (
             <STYLES>
             <footer>
+                {/*
                 <div className="logo-container">
                     <FontAwesomeIcon
                         icon={['fab', 'redhat']}
@@ -125,59 +139,94 @@ class Footer extends Component {
                         color="#4ECDC4"
                     />
                 </div>
+                */}
                 <div className="container">
                     <div className="section">
                         <ul className="section-ul">
                             <h3>Products</h3>
-                            <li className="sections-li grow">Collections</li>
-                            <li className="sections-li grow">Types of Hats</li>
-                            <li className="sections-li grow">Gifts</li>
-                            <li className="sections-li grow">Current Sales</li>
-                            <li className="sections-li grow">Most Popular</li>
+                            <li className="sections-li grow">
+                                <a href="#">Collections</a>
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Types of Hats</a>
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Gifts</a>
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Current Sales</a>    
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Most Popular</a>   
+                            </li>
                         </ul>
                     </div>
                     <div className="section">
                         <ul className="section-ul">
                             <h3>Our Company</h3>
-                            <li className="sections-li grow">About Us</li>
-                            <li className="sections-li grow">Deliveries</li>
-                            <li className="sections-li grow">Returns</li>
-                            <li className="sections-li grow">Careers</li>
-                            <li className="sections-li grow">Contact Us</li>
+                            <li className="sections-li grow">
+                                <a href="#">About Us</a> 
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Deliveries</a>
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Returns</a>
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Careers</a> 
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Contact Us</a> 
+                            </li>
                         </ul>
                     </div>
                     <div className="section">
                         <ul className="section-ul">
                             <h3>Your Acconut</h3>
-                            <li className="sections-li grow">Account Info</li>
-                            <li className="sections-li grow">Returns</li>
-                            <li className="sections-li grow">Gift Cards</li>
-                            <li className="sections-li grow">Shopping Cart</li>
+                            <li className="sections-li grow">
+                                <a href="#">Account Info</a> 
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Returns</a> 
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Gift Cards</a>  
+                            </li>
+                            <li className="sections-li grow">
+                                <a href="#">Shopping Cart</a>
+                            </li>
                         </ul>
                     </div>
                     <div className="section">
                         <ul className="section-ul social-ul">
                             <h3>Social</h3>
                             <li className="sections-li">
-                                <FontAwesomeIcon
-                                    icon={['fab', 'instagram']}
-                                    size="2x"
-                                    color="#92A2B1"
-                                />
+                                <a href="#">
+                                    <FontAwesomeIcon
+                                        icon={['fab', 'instagram']}
+                                        size="2x"
+                                        color="#92A2B1"
+                                    />
+                                </a>
                             </li>
                             <li className="sections-li">
-                                <FontAwesomeIcon
-                                    icon={['fab', 'facebook-square']}
-                                    size="2x"
-                                    color="#92A2B1"
-                                />
+                                <a href="#">
+                                    <FontAwesomeIcon
+                                        icon={['fab', 'facebook-square']}
+                                        size="2x"
+                                        color="#92A2B1"
+                                    />
+                                </a>
                             </li>
                             <li className="sections-li">
-                                <FontAwesomeIcon
-                                    icon={['fab', 'twitter-square']}
-                                    size="2x"
-                                    color="#92A2B1"
-                                />
+                                <a href="#">
+                                    <FontAwesomeIcon
+                                        icon={['fab', 'twitter-square']}
+                                        size="2x"
+                                        color="#92A2B1"
+                                    />
+                                </a>
                             </li>
                         </ul>
                     </div>
