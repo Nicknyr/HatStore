@@ -14,6 +14,29 @@ const STYLES = styled.div`
     justify-content: center;
     margin-bottom: 5em;
 
+    img {
+        transition: .3s;
+
+        &:hover {
+            filter: brightness(50%);
+            //transform: rotate(360deg);
+        }
+    }
+
+    button {
+        height: 2.2em;
+        width: 7em;
+        border: 1px solid snow;
+        font-size: 18px;
+        position: relative;
+        top: -300px;
+        left: 0px;
+        background: transparent;
+        color: snow;
+        cursor: pointer;
+    }
+
+
     .blog-item-container {
         display: flex;
         justify-content: space-around;
@@ -21,6 +44,12 @@ const STYLES = styled.div`
 
     .blog-item {
         margin: 2em;
+    }
+
+    // Animates button on hover
+    .blog-item:hover button {
+        transition: all .3s;
+        transform: translate(0, 150px);
     }
 
     .blog-info {
@@ -82,7 +111,10 @@ const STYLES = styled.div`
         }
     }
     }
+
+   
 `;
+
 
 const Blog = () => {
     return(
@@ -92,6 +124,7 @@ const Blog = () => {
                 <div className="blog-item-container">
                     <div className="blog-item">
                         <img src={Suit} width="350" height="250"/>
+                        <button className="mybutton">READ MORE</button>
                         <div className="blog-info">
                             <a href="#"><h3>Style Tips</h3></a>
                             <div className="details">
@@ -127,6 +160,7 @@ const Blog = () => {
                     </div>
                     <div className="blog-item">
                         <img src={Snow} width="350" height="250"/>
+                        <button className="mybutton">READ MORE</button>
                         <div className="blog-info">
                             <a href="#"><h3>Winter Fashion</h3></a>
                             <div className="details">
@@ -162,6 +196,7 @@ const Blog = () => {
                     </div>
                     <div className="blog-item">
                         <img src={BKBridge} width="350" height="250"/>
+                        <button className="mybutton">READ MORE</button>
                         <div className="blog-info">
                             <a href="#"><h3>NYC Store</h3></a>
                             <div className="details">
